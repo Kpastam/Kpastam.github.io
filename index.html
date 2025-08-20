@@ -1,367 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khyathi Pastam - Kawaii Portfolio</title>
-    <!-- Import React, ReactDOM, and Babel from CDNs -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <!-- Import Lucide Icons as a JS library for use in React -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/lucide-react@latest"></script>
-    <!-- Import Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Define custom colors and fonts for the kawaii theme */
-        :root {
-            --kawaii-pink: #FFC0CB;
-            --kawaii-light-pink: #FEECEF;
-            --kawaii-accent: #FFD1DC;
-            --kawaii-text: #5A3F48;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khyathi Pastam - Kawaii Portfolio</title>
 
-        /* Import Google Font for a cutesy aesthetic */
-        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            color: var(--kawaii-text);
-            background-color: var(--kawaii-light-pink);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        .bg-kawaii-light-pink { background-color: var(--kawaii-light-pink); }
-        .bg-kawaii-pink { background-color: var(--kawaii-pink); }
-        .text-kawaii-text { color: var(--kawaii-text); }
-        .text-kawaii-pink { color: var(--kawaii-pink); }
-        .border-pink-100 { border-color: #FCE8F0; }
+<style>
+:root {
+    --kawaii-pink: #FFC0CB;
+    --kawaii-light-pink: #FEECEF;
+    --kawaii-accent: #FFD1DC;
+    --kawaii-text: #5A3F48;
+}
 
-        .prose a {
-            color: var(--kawaii-pink);
-            text-decoration: underline;
-        }
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--kawaii-light-pink);
+    color: var(--kawaii-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 0.85rem;
+}
 
-        /* Style for the shadow to make it softer and more rounded */
-        .shadow-xl {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+.list-item-projects {
+    list-style-type: none;
+    background-color: var(--kawaii-light-pink);
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--kawaii-pink);
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+.list-item-projects:hover { transform: scale(1.05); }
 
-        .list-item-projects {
-            list-style-type: none;
-            background-color: var(--kawaii-light-pink);
-            padding: 1.5rem;
-            border-radius: 1.5rem;
-            border: 1px solid var(--kawaii-pink);
-            transform: scale(1);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .list-item-projects:hover {
-            transform: scale(1.05);
-        }
-
-        /* Keyframe animation for the flying airplane */
-        @keyframes fly {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
-        }
-
-        .plane-icon {
-            animation: fly 2s ease-in-out infinite;
-        }
-    </style>
+.footer-link { transition: transform 0.3s, color 0.3s; display:flex; flex-direction:column; align-items:center; color: var(--kawaii-text); font-size:0.8rem;}
+.footer-link:hover { transform: scale(1.2); color: var(--kawaii-pink); }
+.footer-link svg { margin-bottom:0.2rem; }
+.badge { display:inline-block; padding:0.25rem 0.5rem; margin:0.15rem; border-radius:0.5rem; font-size:0.75rem; font-weight:600; background-color:var(--kawaii-pink); color:white; }
+</style>
 </head>
 <body class="min-h-screen">
 
-    <!-- The root element where the React app will be rendered -->
-    <div id="root"></div>
+<!-- Header -->
+<header class="py-8 text-center bg-white shadow-md border-b-2 border-kawaii-pink mb-6">
+    <h1 class="text-3xl md:text-5xl font-black mb-1 text-kawaii-pink">Khyathi Pastam</h1>
+    <p class="text-sm md:text-lg font-medium text-gray-600 tracking-wide">Hi! Welcome to my little corner of the internet. 🌸</p>
+</header>
 
-    <!-- The main script containing the React code -->
-    <script type="text/babel">
-        // Import necessary icons from the Lucide-React library
-        const { Briefcase, GraduationCap, Heart, User, Sparkles, Code, Telescope, Lightbulb, MapPin, CheckCircle, Clock, Plane, Users, Linkedin, Mail } = lucideReact;
+<main class="container mx-auto px-4 space-y-8 pb-8">
 
-        // Main App component for the portfolio website
-        const App = () => {
-            // Define the content for the portfolio in a structured way
-            const portfolioContent = {
-                name: 'Khyathi Pastam',
-                tagline: 'Hi ! Welcome to my little corner of the internet. 🌸',
-                about: "I'm a passionate and creative individual with a love for learning and building beautiful things. I have a strong foundation in coding and I'm always looking for new challenges to grow my skills.",
-                education: [
-                    {
-                        institution: 'Krishna University',
-                        degree: 'Master of Technology (M.Tech)',
-                        years: '2024 - Present',
-                        description: 'Currently pursuing an M.Tech degree in Computer science and Engineering. Working on exciting research and fun projects.',
-                    },
-                    {
-                        institution: 'Sathyabama Institute of Science and Technology',
-                        degree: 'Bachelor of Technolgy (B.Tech)',
-                        years: '2014 - 2018',
-                        description: 'Focused on Bioinformatics,software development, data structures, and algorithms. Completed a thesis project on Drug Discovery in Osteoporosis using endophytes.',
-                    },
-                ],
-                experience: [
-                    {
-                        company: 'DVR and Dr. HS MIC College of Technology',
-                        position: 'Lecturer in Computer science and Engineering Department',
-                        years: '2023 - 2024',
-                        description: '•	Teaching and offering training in programming languages like Python and Java. •	Supported and mentored students in their Technical Projects',
-                    },
-                    {
-                        company: 'Amazon Development Centre, India',
-                        position: 'Quality Specialist',
-                        years: '2018-2019',
-                        description: '•	Managed task coordination and follow-ups across 90+ clients and stakeholders for Finance Support, Payroll, and Benefits using HR & People Ops Tools ,Slack , Notion.•	Utilized SQL and Microsoft Excel for data management , project review meetings.',
-                    },
-                ],
-                // New section for projects
-                projects: {
-                    current: [
-                        {
-                            title: 'BioTejas',
-                            description: 'BioTejas is a friendly, interactive toolkit with a kid-inspired assistant character (“Tejas”) who guides users step by step through bioinformatics tasks. Instead of cryptic manuals or intimidating interfaces.Technologies used :JavaScript, HTML, CSS.Python + PyQt5,Small LLM integration.',
-                            link: '#',
-                        },
-                        {
-                            title: 'Terrarium style Biofilm simulator',
-                            description: 'Explore interactive biofilm simulations and learn how microbial communities grow and adapt in dynamic environments. Visualize, experiment, and understand microbial behavior with our easy-to-use tools. Technologies used: Python libraries in Jupyter Notebook.',
-                            link: '#',
-                        },
-                    ],
-                    completed: [
-                        {
-                            title: 'LSTM Vs CONVLSTM',
-                            description: 'Designed and built this personal portfolio site to showcase my skills. Technologies used: React, Tailwind CSS, Lucide-React.',
-                            link: '#',
-                        },
-                        {
-                            title: 'MACE models simulation in google collab',
-                            description: 'Developed a chess engine using a minimax algorithm with alpha-beta pruning. Technologies used: Java.',
-                            link: '#',
-                        },
-                    ],
-                },
-                // New section for technical skills
-                skills: [
-                    'JavaScript (ES6+)', 'React', 'HTML/CSS', 'Python', 'Java', 'Git/GitHub', 'FLASK', 'SQL',
-                ],
-                // New section for classes taught
-                classesTaught: [
-                    'Java Lab', 'Python Lab', 'Internet of Things', 'Operating Systems',
-                ],
-                // New section for research interests
-                researchInterests: [
-                    'Machine Learning in Healthcare', 'Scientific Modelling', 'Computational Material science','Biophysics','Bioinformatics',
-                ],
-            };
+<!-- About Me -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-1">About Me</h2>
+    <p class="text-gray-700 font-light">I'm a passionate and creative individual with a love for learning and building beautiful things. I have a strong foundation in coding and I'm always looking for new challenges to grow my skills.</p>
+</section>
 
-            // Custom colors for the kawaii theme
-            const colors = {
-                'kawaii-pink': '#FFC0CB',
-                'kawaii-light-pink': '#FEECEF',
-                'kawaii-accent': '#FFD1DC',
-                'kawaii-text': '#5A3F48',
-            };
+<!-- Education -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Education</h2>
+    <ul class="space-y-3">
+        <li class="list-item-projects">
+            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Krishna University</h3>
+            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Master of Technology (M.Tech)</p>
+            <p class="text-xs text-gray-500 mb-1">2024 - Present</p>
+            <p class="font-light text-gray-600">Currently pursuing an M.Tech in Computer Science and Engineering. Working on exciting research and projects.</p>
+        </li>
+        <li class="list-item-projects">
+            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Sathyabama Institute of Science and Technology</h3>
+            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Bachelor of Technology (B.Tech)</p>
+            <p class="text-xs text-gray-500 mb-1">2014 - 2018</p>
+            <p class="font-light text-gray-600">Focused on Bioinformatics, software development, data structures, and algorithms. Thesis on Drug Discovery in Osteoporosis using endophytes.</p>
+        </li>
+    </ul>
+</section>
 
-            // Helper component to render a single section of the portfolio
-            const PortfolioSection = ({ title, icon: Icon, children }) => (
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-pink-100 flex flex-col items-center text-center w-full max-w-4xl mx-auto relative">
-                    <div className="flex items-center justify-center mb-4">
-                        {/* Render the icon passed as a prop */}
-                        <Icon className="w-10 h-10 text-kawaii-pink mr-3" />
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-kawaii-text">{title}</h2>
-                    </div>
-                    <div className="prose prose-lg text-gray-700 font-light">
-                        {children}
-                    </div>
-                </div>
-            );
 
-            // A standalone component for the Roadmap
-            const KawaiiRoadmap = () => (
-                <div className="bg-white p-8 rounded-3xl shadow-xl border border-pink-100 flex flex-col items-center w-full max-w-4xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-extrabold text-kawaii-text mb-6">My Academic Journey 🎓</h2>
-                    <svg width="100%" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" className="max-w-full">
-                        {/* Draw the curved path for the roadmap */}
-                        <path d="M 50 150 Q 400 -50, 750 150" className="line" />
 
-                        {/* M.Tech Point */}
-                        <circle cx="150" cy="118" r="20" className="circle" />
-                        <text x="150" y="100" className="text">M.Tech</text>
-                        <text x="150" y="125" className="subtext">(Iam Here)</text>
-                        
-                        
-                        {/* Ph.D. Point */}
-                        <circle cx="650" cy="118" r="20" className="circle" />
-                        <text x="650" y="100" className="text">Ph.D.</text>
-                        <text x="650" y="125" className="subtext">(On the Way!)</text>
-                        
-                        {/* Airplane icon placed in the middle of the path */}
-                        <Plane x="390" y="45" size={40} className="plane-icon" style={{ transform: 'rotate(20deg)' }}/>
-                    </svg>
-                </div>
-            );
+<!-- Academic Roadmap -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">My Academic Journey 🎓</h2>
+    <svg width="100%" height="140" viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg">
+        <!-- Curved path -->
+        <path d="M50 100 Q400 -50, 750 100" stroke="#FFC0CB" stroke-width="3" fill="transparent" stroke-linecap="round"/>
+        
+        <!-- M.Tech text -->
+        <text x="150" y="70" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">M.Tech</text>
+        
+        <!-- Ph.D. text -->
+        <text x="650" y="70" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">Ph.D.</text>
+        
+        <!-- Large Brown Paper Plane -->
+        <g transform="translate(395,20)">
+            <polygon points="0,0 30,16 0,32 8,16" fill="#A0522D" stroke="#8B4513" stroke-width="1"/>
+        </g>
+    </svg>
+</section>
 
-            return (
-                <div className="min-h-screen bg-kawaii-light-pink text-kawaii-text antialiased">
-                    
-                    {/* Header section with the user's name and tagline */}
-                    <header className="py-20 text-center bg-white shadow-lg border-b-4 border-kawaii-pink mb-12 relative">
-                        <h1 className="text-6xl md:text-8xl font-black mb-4 text-kawaii-pink">
-                            {portfolioContent.name}
-                        </h1>
-                        <p className="text-xl md:text-2xl font-medium text-gray-600 tracking-wide">
-                            {portfolioContent.tagline}
-                        </p>
-                    </header>
 
-                    {/* Main content area with sections */}
-                    <main className="container mx-auto px-4 space-y-16 pb-20">
-                        
-                        {/* About Me Section */}
-                        <PortfolioSection title="About Me" icon={User}>
-                            <p className="font-light">{portfolioContent.about}</p>
-                        </PortfolioSection>
-                        
-                        {/* Education Section */}
-                        <PortfolioSection title="Education" icon={GraduationCap}>
-                            <ul className="list-none p-0 space-y-6">
-                                {/* Map over the education array to create list items */}
-                                {portfolioContent.education.map((item, index) => (
-                                    <li key={index} className="bg-kawaii-light-pink p-6 rounded-2xl border border-kawaii-pink transform hover:scale-105 transition-transform duration-300">
-                                        <h3 className="text-2xl font-bold text-kawaii-text">{item.institution}</h3>
-                                        <p className="text-xl text-gray-700 font-semibold mb-1">{item.degree}</p>
-                                        <p className="text-sm text-gray-500 mb-2">{item.years}</p>
-                                        <p className="font-light text-gray-600">{item.description}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </PortfolioSection>
+<!-- Experience -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Experience</h2>
+    <ul class="space-y-3">
+        <li class="list-item-projects">
+            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">DVR and Dr. HS MIC College of Technology</h3>
+            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Lecturer in CSE</p>
+            <p class="text-xs text-gray-500 mb-1">2023 - 2024</p>
+            <p class="font-light text-gray-600">Teaching Python and Java; mentoring students in technical projects.</p>
+        </li>
+        <li class="list-item-projects">
+            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Amazon Development Centre, India</h3>
+            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Quality Specialist</p>
+            <p class="text-xs text-gray-500 mb-1">2018 - 2019</p>
+            <p class="font-light text-gray-600">Managed tasks across 90+ clients, SQL & Excel for data management, project review meetings.</p>
+        </li>
+    </ul>
+</section>
 
-                        {/* Academic Roadmap Section */}
-                        <KawaiiRoadmap />
 
-                        {/* Professional Experience Section */}
-                        <PortfolioSection title="Experience" icon={Briefcase}>
-                            <ul className="list-none p-0 space-y-6">
-                                {/* Map over the experience array to create list items */}
-                                {portfolioContent.experience.map((item, index) => (
-                                    <li key={index} className="bg-kawaii-light-pink p-6 rounded-2xl border border-kawaii-pink transform hover:scale-105 transition-transform duration-300">
-                                        <h3 className="text-2xl font-bold text-kawaii-text">{item.company}</h3>
-                                        <p className="text-xl text-gray-700 font-semibold mb-1">{item.position}</p>
-                                        <p className="text-sm text-gray-500 mb-2">{item.years}</p>
-                                        <p className="font-light text-gray-600">{item.description}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </PortfolioSection>
 
-                        {/* Projects Section */}
-                        <PortfolioSection title="Projects" icon={Sparkles}>
-                            <div className="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0 w-full">
-                                <div className="flex-1">
-                                    <h3 className="text-2xl font-bold text-kawaii-text flex items-center justify-center mb-4"><Clock className="w-6 h-6 mr-2 text-kawaii-pink" />Current</h3>
-                                    <ul className="list-none p-0 space-y-4">
-                                        {portfolioContent.projects.current.map((project, index) => (
-                                            <li key={index} className="list-item-projects">
-                                                <a href={project.link} className="block text-left">
-                                                    <h4 className="text-lg font-semibold text-kawaii-text">{project.title}</h4>
-                                                    <p className="text-sm text-gray-600 mt-1">{project.description}</p>
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="text-2xl font-bold text-kawaii-text flex items-center justify-center mb-4"><CheckCircle className="w-6 h-6 mr-2 text-kawaii-pink" />Completed</h3>
-                                    <ul className="list-none p-0 space-y-4">
-                                        {portfolioContent.projects.completed.map((project, index) => (
-                                            <li key={index} className="list-item-projects">
-                                                <a href={project.link} className="block text-left">
-                                                    <h4 className="text-lg font-semibold text-kawaii-text">{project.title}</h4>
-                                                    <p className="text-sm text-gray-600 mt-1">{project.description}</p>
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </PortfolioSection>
+<!-- Projects -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Projects</h2>
+    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+        <div class="flex-1">
+            <h3 class="text-lg font-bold text-kawaii-text mb-1">Current</h3>
+            <ul class="space-y-1">
+                <li class="list-item-projects">
+                    <h4 class="text-base font-semibold text-kawaii-text">BioTejas</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Interactive bioinformatics toolkit with a friendly assistant character. JS, HTML, CSS, Python + PyQt5.</p>
+                </li>
+                <li class="list-item-projects">
+                    <h4 class="text-base font-semibold text-kawaii-text">Terrarium Biofilm Simulator</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Visualize microbial behavior using Python libraries in Jupyter Notebook.</p>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-1">
+            <h3 class="text-lg font-bold text-kawaii-text mb-1">Completed</h3>
+            <ul class="space-y-1">
+                <li class="list-item-projects">
+                    <h4 class="text-base font-semibold text-kawaii-text">LSTM Vs CONVLSTM</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Portfolio site showcasing my skills. React, Tailwind CSS.</p>
+                </li>
+                <li class="list-item-projects">
+                    <h4 class="text-base font-semibold text-kawaii-text">MACE Models Simulation</h4>
+                    <p class="text-xs text-gray-600 mt-0.5">Chess engine using minimax with alpha-beta pruning. Java.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
 
-                        {/* Technical Skills Section */}
-                        <PortfolioSection title="Technical Skills" icon={Code}>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {portfolioContent.skills.map((skill, index) => (
-                                    <span key={index} className="bg-kawaii-pink text-white px-4 py-2 rounded-full font-semibold shadow-md transform transition-transform duration-300 hover:scale-110">
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </PortfolioSection>
+<!-- Technical Skills & Classes Taught -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Technical Skills</h2>
+    <div class="flex flex-wrap justify-center">
+        <span class="badge">JavaScript</span>
+        <span class="badge">React</span>
+        <span class="badge">HTML/CSS</span>
+        <span class="badge">Python</span>
+        <span class="badge">Java</span>
+        <span class="badge">Git/GitHub</span>
+        <span class="badge">FLASK</span>
+        <span class="badge">SQL</span>
+    </div>
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mt-4 mb-2">Classes Taught</h2>
+    <div class="flex flex-wrap justify-center">
+        <span class="badge">Java Lab</span>
+        <span class="badge">Python Lab</span>
+        <span class="badge">Internet of Things</span>
+        <span class="badge">Operating Systems</span>
+    </div>
+</section>
 
-                        {/* Classes Taught Section */}
-                        <PortfolioSection title="Classes Taught" icon={Users}>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                {portfolioContent.classesTaught.map((subject, index) => (
-                                    <span key={index} className="bg-kawaii-pink text-white px-4 py-2 rounded-full font-semibold shadow-md transform transition-transform duration-300 hover:scale-110">
-                                        {subject}
-                                    </span>
-                                ))}
-                            </div>
-                        </PortfolioSection>
+<!-- Research Interests -->
+<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Research Interests </h2>
+    <ul class="flex flex-wrap justify-center gap-2">
+        <li class="badge">Machine Learning in Healthcare</li>
+        <li class="badge">Scientific Modelling</li>
+        <li class="badge">Computational Material Science</li>
+        <li class="badge">Biophysics</li>
+        <li class="badge">Bioinformatics</li>
+    </ul>
+</section>
 
-                        {/* Research Interests Section */}
-                        <PortfolioSection title="Areas of Research Interest" icon={Telescope}>
-                            <ul className="list-none p-0 space-y-4 text-left">
-                                {portfolioContent.researchInterests.map((interest, index) => (
-                                    <li key={index} className="flex items-center space-x-2">
-                                        <Lightbulb className="w-5 h-5 flex-shrink-0 text-kawaii-pink" />
-                                        <span className="text-gray-700">{interest}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </PortfolioSection>
-                        
-                    </main>
+<!-- Footer -->
+<footer class="text-center py-4 space-y-3">
+    <h3 class="text-lg md:text-xl font-extrabold text-kawaii-text">Contact</h3>
+    <div class="flex justify-center gap-4 md:gap-6">
+        <a href="mailto:khyathipastam@gmail.com" class="footer-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16v16H4z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Email</span>
+        </a>
+        <a href="https://github.com/Kpastam" target="_blank" class="footer-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+                <path d="M12 0.5C5.648 0.5 0.5 5.648 0.5 12c0 5.092 3.292 9.417 7.868 10.955.575.106.785-.25.785-.555 0-.274-.01-1.002-.015-1.964-3.2.695-3.878-1.544-3.878-1.544-.523-1.33-1.276-1.684-1.276-1.684-1.043-.713.08-.698.08-.698 1.152.081 1.758 1.184 1.758 1.184 1.026 1.756 2.693 1.249 3.348.954.104-.742.402-1.249.732-1.536-2.554-.29-5.236-1.276-5.236-5.683 0-1.256.448-2.283 1.183-3.086-.119-.29-.512-1.456.113-3.036 0 0 .964-.31 3.156 1.18.914-.254 1.894-.381 2.868-.386.974.005 1.954.132 2.868.386 2.19-1.49 3.152-1.18 3.152-1.18.627 1.58.234 2.746.115 3.036.738.803 1.182 1.83 1.182 3.086 0 4.418-2.688 5.39-5.25 5.674.414.356.783 1.062.783 2.143 0 1.548-.014 2.797-.014 3.176 0 .31.208.667.791.554C20.708 21.417 24 17.092 24 12c0-6.352-5.148-11.5-12-11.5z"/>
+            </svg>
+            <span>GitHub</span>
+        </a>
+        <a href="https://in.linkedin.com/in/khyathi-pastam-551a7b16a" target="_blank" class="footer-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+        </a>
+    </div>
+</footer>
 
-                    {/* Footer */}
-                    <footer className="text-center py-8 text-gray-500 text-sm font-light">
-                        <h3 className="text-2xl font-extrabold text-kawaii-text mb-4">Contact</h3>
-                        <p className="flex items-center justify-center space-x-4 mb-2">
-                            <a href="https://in.linkedin.com/in/khyathi-pastam-551a7b16a" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 text-kawaii-text hover:text-kawaii-pink transition-colors">
-                                <Linkedin className="w-5 h-5" />
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="mailto:khyathipastam@gmail.com" className="flex items-center space-x-1 text-kawaii-text hover:text-kawaii-pink transition-colors">
-                                <Mail className="w-5 h-5" />
-                                <span>Email</span>
-                            </a>
-                            {/* GitHub link added here with inline SVG */}
-                            <a href="https://github.com/Kpastam" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-1 text-kawaii-text hover:text-kawaii-pink transition-colors">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                                </svg>
-                                <span>GitHub</span>
-                            </a>
-                        </p>
-                        <p>
-                            <Heart className="inline-block w-4 h-4 mx-1 text-kawaii-pink" />
-                        </p>
-                    </footer>
-                </div>
-            );
-        }
-
-        // Render the App component into the root element
-        const container = document.getElementById('root');
-        const root = ReactDOM.createRoot(container);
-        root.render(<App />);
-    </script>
 </body>
 </html>
