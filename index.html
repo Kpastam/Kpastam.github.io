@@ -30,7 +30,7 @@ body {
 
 .list-item-projects {
     list-style-type: none;
-    background-color: var(--kawaii-light-pink);
+    background-color: var(--kawaii-pink);
     padding: 0.75rem;
     border-radius: 0.75rem;
     border: 1px solid var(--kawaii-pink);
@@ -42,7 +42,7 @@ body {
 .footer-link { transition: transform 0.3s, color 0.3s; display:flex; flex-direction:column; align-items:center; color: var(--kawaii-text); font-size:0.8rem;}
 .footer-link:hover { transform: scale(1.2); color: var(--kawaii-pink); }
 .footer-link svg { margin-bottom:0.2rem; }
-.badge { display:inline-block; padding:0.25rem 0.5rem; margin:0.15rem; border-radius:0.5rem; font-size:0.75rem; font-weight:600; background-color:var(--kawaii-pink); color:white; }
+.badge { display:inline-block; padding:0.25rem 0.5rem; margin:0.15rem; border-radius:0.5rem; font-size:0.75rem; font-weight:600; background-color:var(--kawaii-text); color:white; }
 </style>
 </head>
 <body class="min-h-screen">
@@ -80,28 +80,18 @@ body {
     </ul>
 </section>
 
-
-
 <!-- Academic Roadmap -->
 <section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
     <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">My Academic Journey 🎓</h2>
-    <svg width="100%" height="140" viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg">
-        <!-- Curved path -->
-        <path d="M50 100 Q400 -50, 750 100" stroke="#FFC0CB" stroke-width="3" fill="transparent" stroke-linecap="round"/>
-        
-        <!-- M.Tech text -->
-        <text x="150" y="70" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">M.Tech</text>
-        
-        <!-- Ph.D. text -->
-        <text x="650" y="70" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">Ph.D.</text>
-        
-        <!-- Large Brown Paper Plane -->
-        <g transform="translate(395,20)">
+    <svg width="100%" height="160" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg">
+        <path d="M50 120 Q400 -20, 750 120" stroke="#FFC0CB" stroke-width="3" fill="transparent" stroke-linecap="round"/>
+        <text x="150" y="90" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">M.Tech</text>
+        <text x="650" y="90" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">Ph.D.</text>
+        <g transform="translate(395,40) scale(2)">
             <polygon points="0,0 30,16 0,32 8,16" fill="#A0522D" stroke="#8B4513" stroke-width="1"/>
         </g>
     </svg>
 </section>
-
 
 <!-- Experience -->
 <section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
@@ -121,8 +111,6 @@ body {
         </li>
     </ul>
 </section>
-
-
 
 <!-- Projects -->
 <section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
@@ -181,7 +169,7 @@ body {
 
 <!-- Research Interests -->
 <section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Research Interests </h2>
+    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Research Interests</h2>
     <ul class="flex flex-wrap justify-center gap-2">
         <li class="badge">Machine Learning in Healthcare</li>
         <li class="badge">Scientific Modelling</li>
