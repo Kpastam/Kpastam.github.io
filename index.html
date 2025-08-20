@@ -33,7 +33,7 @@ export default function App() {
         company: 'Amazon Development Centre, India',
         position: 'Quality Specialist',
         years: '2018-2019',
-        description: '•	Managed task coordination and follow-ups across  90+ clients and stakeholders for Finance Support, Payroll, and Benefits using HR & People Ops Tools ,Slack , Notion.•	Utilized SQL and Microsoft Excel for data management , project review meetings.',
+        description: '•	Managed task coordination and follow-ups across 90+ clients and stakeholders for Finance Support, Payroll, and Benefits using HR & People Ops Tools ,Slack , Notion.•	Utilized SQL and Microsoft Excel for data management , project review meetings.',
       },
     ],
     // New section for projects
@@ -87,7 +87,6 @@ export default function App() {
 
   // Helper component to render a single section of the portfolio
   const PortfolioSection = ({ title, icon: Icon, children }) => (
-    // The "relative" class is added here to allow absolute positioning of the stickers
     <div className="bg-white p-8 rounded-3xl shadow-xl border border-pink-100 flex flex-col items-center text-center w-full max-w-4xl mx-auto relative">
       <div className="flex items-center justify-center mb-4">
         {/* Render the icon passed as a prop */}
@@ -108,9 +107,9 @@ export default function App() {
         <style>
           {`
             @keyframes fly {
-                0% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
-                100% { transform: translateY(0); }
+              0% { transform: translateY(0); }
+              50% { transform: translateY(-10px); }
+              100% { transform: translateY(0); }
             }
             .line {
               stroke: ${colors['kawaii-accent']};
@@ -209,7 +208,7 @@ export default function App() {
         <p className="text-xl md:text-2xl font-medium text-gray-600 tracking-wide">
           {portfolioContent.tagline}
         </p>
-         </header>
+      </header>
 
       {/* Main content area with sections */}
       <main className="container mx-auto px-4 space-y-16 pb-20">
