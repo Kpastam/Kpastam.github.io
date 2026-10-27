@@ -3,197 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khyathi Pastam portfolio</title>
+<title>Khyathi Pastam | Portfolio</title>
+<meta name="description" content="M.Tech graduate in Computer Science & Engineering. Research in embedded systems, RTOS, IoT and machine learning.">
 
-<!-- Tailwind CSS -->
 <script src="https://cdn.tailwindcss.com"></script>
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-    --kawaii-pink: #FFC0CB;       /* box color */
-    --kawaii-light-pink: #fae1e4; /* page background */
-    --kawaii-accent: #FFD1DC;
-    --kawaii-text: #5A3F48;
+    --pink: #FFC0CB;
+    --pink-soft: #FFDCE0;
+    --page: #fae1e4;
+    --text: #5A3F48;
+    --muted: #6b5a60;
+    --border: #e9b8c2;
 }
-
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: var(--kawaii-light-pink);
-    color: var(--kawaii-text);
+    background-color: var(--page);
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 0.85rem;
 }
-
-.list-item-projects {
-    list-style-type: none;
-    background-color: var(--kawaii-light-pink);
-    padding: 0.75rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--kawaii-pink);
-    transform: scale(1);
-    transition: transform 0.3s ease-in-out;
-}
-.list-item-projects:hover { transform: scale(1.05); }
-
-.footer-link { transition: transform 0.3s, color 0.3s; display:flex; flex-direction:column; align-items:center; color: var(--kawaii-text); font-size:0.8rem;}
-.footer-link:hover { transform: scale(1.2); color: var(--kawaii-pink); }
-.footer-link svg { margin-bottom:0.2rem; }
-.badge { display:inline-block; padding:0.25rem 0.5rem; margin:0.15rem; border-radius:0.5rem; font-size:0.75rem; font-weight:600; background-color:var(--kawaii-text); color:white; }
+.card { background: #fff; border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(90,63,72,.08); }
+.card h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1rem; }
+.item { background: var(--pink-soft); border: 1px solid var(--border); border-radius: 0.9rem; padding: 1rem 1.25rem; text-align: left; }
+.item h3 { font-weight: 700; font-size: 1.05rem; }
+.item .role { font-weight: 600; }
+.item .date { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.25rem; }
+.item p.desc { color: var(--muted); }
+.badge { display: inline-block; padding: 0.25rem 0.7rem; margin: 0.15rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: var(--text); color: #fff; }
+.badge-soft { background: var(--pink-soft); color: var(--text); border: 1px solid var(--border); }
+.footer-link { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; color: var(--text); font-size: 0.85rem; font-weight: 600; transition: transform .2s; }
+.footer-link:hover { transform: translateY(-3px); }
+a:focus-visible { outline: 3px solid var(--text); outline-offset: 4px; border-radius: 6px; }
+nav a { padding: 0.25rem 0.6rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; }
+nav a:hover { background: var(--pink-soft); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .footer-link { transition: none; } }
 </style>
 </head>
 <body class="min-h-screen">
 
-<!-- Header -->
-<header class="py-8 text-center bg-white shadow-md border-b-2 border-kawaii-pink mb-6">
-    <h1 class="text-3xl md:text-5xl font-black mb-1 text-kawaii-pink">Khyathi Pastam</h1>
-    <p class="text-sm md:text-lg font-medium text-gray-600 tracking-wide">Hi! Welcome to my little corner of the internet. 🌸</p>
+<header class="text-center bg-white border-b-2 border-[#FFC0CB] shadow-sm">
+    <div class="px-4 pt-10 pb-4">
+        <h1 class="text-3xl md:text-5xl font-bold mb-2">Khyathi Pastam</h1>
+        <p class="text-base md:text-lg font-medium text-[#6b5a60]">M.Tech in Computer Science &amp; Engineering · Aspiring Assistant Professor 🌸</p>
+    </div>
+    <nav class="flex flex-wrap justify-center gap-1 px-4 pb-4" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#papers">Papers</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </nav>
 </header>
 
-<main class="container mx-auto px-4 space-y-8 pb-8">
+<main class="max-w-4xl mx-auto px-4 py-8 space-y-6">
 
-<!-- About Me -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-1">About Me</h2>
-    <p class="text-gray-700 font-light">I'm currently working as an Intern at IIT Kharagpur</p>
+<section id="about" class="card text-center">
+    <h2>About Me</h2>
+    <p class="max-w-2xl mx-auto">
+        I recently completed my M.Tech in Computer Science &amp; Engineering with a strong foundation in embedded systems design and RTOS kernel development.
+        I have taught programming and networking at the college level and I'm looking to contribute to academic excellence as a lecturer,
+        with research focused on robotics, machine learning and resource-constrained embedded systems.
+    </p>
 </section>
 
-<!-- Education -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Education</h2>
+<section id="education" class="card text-center">
+    <h2>Education</h2>
     <ul class="space-y-3">
-        <li class="bg-[#FFDCE0] p-6 rounded-2xl border border-[#d4babd] transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Krishna University</h3>
-            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Master of Technology (M.Tech)</p>
-            <p class="text-xs text-gray-500 mb-1">2024 - Present</p>
-            <p class="font-light text-gray-600">Currently pursuing an M.Tech in Computer Science and Engineering.</p>
+        <li class="item">
+            <h3>Krishna University, Andhra Pradesh</h3>
+            <p class="role">M.Tech in Computer Science &amp; Engineering</p>
+            <p class="date">2024 – 2026</p>
+            <p class="desc">Specialization: Machine Learning, Deep Learning, IoT &amp; Embedded Systems. Coursework: Machine Learning, Deep Learning, Computational Modelling, Real-Time Operating Systems, Advanced Data Structures.</p>
         </li>
-        <li class="bg-[#FFDCE0] p-6 rounded-2xl border border-[#d4babd] transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Sathyabama Institute of Science and Technology</h3>
-            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Bachelor of Technology (B.Tech)</p>
-            <p class="text-xs text-gray-500 mb-1">2014 - 2018</p>
-            <p class="font-light text-gray-600">Focused on Bioinformatics, software development, data structures, and algorithms. Thesis on Drug Discovery in Osteoporosis using endophytes.</p>
+        <li class="item">
+            <h3>Sathyabama Institute of Science and Technology, Chennai</h3>
+            <p class="role">B.Tech in Bioinformatics</p>
+            <p class="date">2014 – 2018</p>
+            <p class="desc">Coursework: Computational Biology, Data Science, Python Programming, Software Engineering. Thesis on drug discovery in osteoporosis using endophytes.</p>
         </li>
     </ul>
 </section>
 
-<!-- Academic Roadmap -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">My Academic Journey 🎓</h2>
-    <svg width="100%" height="160" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg">
-        <!-- Curved path -->
-        <path d="M50 120 Q400 -20, 750 120" stroke="#FFC0CB" stroke-width="3" fill="transparent" stroke-linecap="round"/>
-
-        <!-- M.Tech and Ph.D labels -->
-        <text x="150" y="90" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">M.Tech</text>
-        <text x="650" y="90" text-anchor="middle" fill="var(--kawaii-text)" font-size="16px" font-weight="bold">Ph.D.</text>
-
-        <!-- Medium Brown Paper Plane -->
-        <g transform="translate(395,50)">
-            <polygon points="0,0 15,8 0,16 4,8" fill="#A0522D" stroke="#8B4513" stroke-width="1"/>
-        </g>
-    </svg>
-</section>
-
-
-<!-- Experience -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Experience</h2>
+<section id="experience" class="card text-center">
+    <h2>Experience</h2>
     <ul class="space-y-3">
-        <li class="bg-[#FFDCE0] p-6 rounded-2xl border border-[#d4babd] transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">DVR and Dr. HS MIC College of Technology</h3>
-            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Lecturer in CSE</p>
-            <p class="text-xs text-gray-500 mb-1">2023 - 2024</p>
-            <p class="font-light text-gray-600">Teaching Python and Java; mentoring students in technical projects.</p>
+        <li class="item">
+            <h3>Indian Institute of Technology, Dhanbad</h3>
+            <p class="role">Guest Lecturer</p>
+            <p class="date">December 2025</p>
+            <p class="desc">Taught a 12-day refresher course on "Mathematics for AI/ML and Data Science" and an Advanced Python course for faculty and students.</p>
         </li>
-        <li class="bg-[#FFDCE0] p-6 rounded-2xl border border-[#d4babd] transform transition-transform duration-300 hover:scale-[1.02]">
-            <h3 class="text-lg md:text-xl font-bold text-kawaii-text">Amazon Development Centre, India</h3>
-            <p class="text-base md:text-lg text-gray-700 font-semibold mb-1">Quality Specialist</p>
-            <p class="text-xs text-gray-500 mb-1">2018 - 2019</p>
-            <p class="font-light text-gray-600">Managed tasks across 90+ clients, SQL & Excel for data management, project review meetings.</p>
+        <li class="item">
+            <h3>DVR and Dr. HS MIC College of Technology</h3>
+            <p class="role">Lecturer in CSE</p>
+            <p class="date">2023 – 2024</p>
+            <p class="desc">Taught Python, Java, Internet of Things and Operating Systems to B.Tech and Diploma cohorts. Designed assessments, tracked student performance and gave targeted feedback.</p>
+        </li>
+        <li class="item">
+            <h3>Amazon Development Centre, India</h3>
+            <p class="role">Quality Specialist</p>
+            <p class="date">2018 – 2019</p>
+            <p class="desc">Coordinated with 90+ clients and stakeholders on Finance, Payroll and Benefits. Handled onboarding, SLA management and process optimization using Salesforce, ADP Workforce and PeopleSoft.</p>
         </li>
     </ul>
 </section>
-    
-<!-- Projects -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Projects</h2>
-    <div class="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
-              <div class="flex-1">
-            <h3 class="text-lg font-bold text-kawaii-text mb-1">Completed</h3>
-            <ul class="space-y-1">
-                <li class="list-item-projects">
-                    <h4 class="text-base font-semibold text-kawaii-text">LSTM Vs CONVLSTM</h4>
-                    <p class="text-xs text-gray-600 mt-0.5">Analyzed network traffic patterns to predict congestion using LSTM and ConvLSTM models. Implemented in Python with TensorFlow/Keras.</p>
-                </li>
-                <li class="list-item-projects">
-                    <h4 class="text-base font-semibold text-kawaii-text">MACE Models Simulation</h4>
-                    <p class="text-xs text-gray-600 mt-0.5">A surface colloids prediction model simulation. colloborated with NCL pune for short time.</p>
-                </li>
-            </ul>
+
+<section id="papers" class="card text-center">
+    <h2>Papers Published</h2>
+    <ul>
+        <li class="item">
+            <p class="font-semibold">Design and Implementation of RTOS-Lite, a deterministic real-time kernel with synchronization capabilities for virtual circuit breaker applications and zero-cycle latency through Cooperative Scheduling</p>
+        </li>
+    </ul>
+</section>
+
+<section id="projects" class="card text-center">
+    <h2>Research Projects</h2>
+    <ul class="space-y-3">
+        <li class="item">
+            <h3>Pre-emptive C Micro-Kernel for IoT Edge Devices</h3>
+            <p class="date">M.Tech final year project</p>
+            <p class="desc">Designed and implemented a Minimal Viable Real-Time Operating System (MVRTOS) kernel simulator in C for resource-constrained IoT edge devices, focused on pre-emptive task scheduling and resource synchronization.</p>
+        </li>
+        <li class="item">
+            <h3>Network Traffic Congestion Prediction: LSTM vs ConvLSTM</h3>
+            <p class="desc">Analyzed network traffic patterns and compared LSTM and ConvLSTM models for congestion forecasting. Implemented in Python with TensorFlow/Keras and evaluated performance and model efficiency.</p>
+        </li>
+        <li class="item">
+            <h3>MACE Models Simulation</h3>
+            <p class="desc">Simulation of a surface colloids prediction model, in a short collaboration with NCL Pune.</p>
+        </li>
+    </ul>
+</section>
+
+<section id="skills" class="card text-center">
+    <h2>Technical Skills</h2>
+    <div class="space-y-3">
+        <div>
+            <p class="font-semibold mb-1">Languages &amp; Systems</p>
+            <span class="badge">C</span><span class="badge">C++</span><span class="badge">Python</span><span class="badge">Java</span><span class="badge">MATLAB</span><span class="badge">JavaScript</span><span class="badge">SQL</span><span class="badge">Linux / Windows</span>
+        </div>
+        <div>
+            <p class="font-semibold mb-1">AI/ML &amp; Data Science</p>
+            <span class="badge">TensorFlow</span><span class="badge">Keras</span><span class="badge">LSTM / ConvLSTM</span><span class="badge">Deep Learning</span><span class="badge">Data Modeling</span>
+        </div>
+        <div>
+            <p class="font-semibold mb-1">Embedded Systems &amp; IoT</p>
+            <span class="badge">RTOS Design</span><span class="badge">Pre-emptive Scheduling</span><span class="badge">Resource Synchronization</span><span class="badge">Microcontroller Programming</span>
+        </div>
+        <div>
+            <p class="font-semibold mb-1">Tools</p>
+            <span class="badge">Git / GitHub</span><span class="badge">VS Code</span><span class="badge">Jupyter Notebook</span>
         </div>
     </div>
+
+    <h2 class="mt-6">Courses Taught</h2>
+    <span class="badge badge-soft">Python</span><span class="badge badge-soft">Java</span><span class="badge badge-soft">Internet of Things</span><span class="badge badge-soft">Operating Systems</span><span class="badge badge-soft">Mathematics for AI/ML</span>
 </section>
 
-<!-- Technical Skills & Classes Taught -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Technical Skills</h2>
-    <div class="flex flex-wrap justify-center">
-        <span class="badge">JavaScript</span>
-        <span class="badge">React</span>
-        <span class="badge">HTML/CSS</span>
-        <span class="badge">Python</span>
-        <span class="badge">Java</span>
-        <span class="badge">Git/GitHub</span>
-        <span class="badge">SQL</span>
-    </div>
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mt-4 mb-2">Classes Taught</h2>
-    <div class="flex flex-wrap justify-center">
-        <span class="badge">Java </span>
-        <span class="badge">Python </span>
-        <span class="badge">Internet of Things</span>
-        <span class="badge">Operating Systems</span>
-    </div>
+<section id="research" class="card text-center">
+    <h2>Research Interests</h2>
+    <span class="badge badge-soft">Robotics</span>
+    <span class="badge badge-soft">Machine Learning</span>
+    <span class="badge badge-soft">Resource-constrained Embedded Systems</span>
+    <span class="badge badge-soft">Real-Time Operating Systems</span>
+    <span class="badge badge-soft">Internet of Things &amp; Edge Computing</span>
 </section>
 
-<!-- Research Interests -->
-<section class="bg-white p-4 rounded-2xl shadow-md border border-pink-100 text-center">
-    <h2 class="text-xl md:text-2xl font-extrabold text-kawaii-text mb-2">Research Interests</h2>
-    <ul class="flex flex-wrap justify-center gap-2">
-        <li class="badge">Machine Learning in Healthcare</li>
-        <li class="badge">AI/ML for large-scale scientific data modelling.</li>
-        <li class="badge">Computational Material Science and extreme-condition simulations.</li>
-        <li class="badge">Internet of Things and Edge computing.</li>
-             
-    </ul>
-</section>
+</main>
 
-<!-- Footer -->
-<footer class="text-center py-4 space-y-3">
-    <h3 class="text-lg md:text-xl font-extrabold text-kawaii-text">Contact</h3>
-    <div class="flex justify-center gap-4 md:gap-6">
-        <a href="mailto:khyathipastam@gmail.com" class="footer-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16v16H4z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
+<footer id="contact" class="text-center py-8 space-y-3">
+    <h2 class="text-xl font-bold">Contact</h2>
+    <div class="flex justify-center gap-8">
+        <a href="mailto:khyathipastam@gmail.com" class="footer-link" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             <span>Email</span>
         </a>
-        <a href="https://github.com/Kpastam" target="_blank" class="footer-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
-                <path d="M12 0.5C5.648 0.5 0.5 5.648 0.5 12c0 5.092 3.292 9.417 7.868 10.955.575.106.785-.25.785-.555 0-.274-.01-1.002-.015-1.964-3.2.695-3.878-1.544-3.878-1.544-.523-1.33-1.276-1.684-1.276-1.684-1.043-.713.08-.698.08-.698 1.152.081 1.758 1.184 1.758 1.184 1.026 1.756 2.693 1.249 3.348.954.104-.742.402-1.249.732-1.536-2.554-.29-5.236-1.276-5.236-5.683 0-1.256.448-2.283 1.183-3.086-.119-.29-.512-1.456.113-3.036 0 0 .964-.31 3.156 1.18.914-.254 1.894-.381 2.868-.386.974.005 1.954.132 2.868.386 2.19-1.49 3.152-1.18 3.152-1.18.627 1.58.234 2.746.115 3.036.738.803 1.182 1.83 1.182 3.086 0 4.418-2.688 5.39-5.25 5.674.414.356.783 1.062.783 2.143 0 1.548-.014 2.797-.014 3.176 0 .31.208.667.791.554C20.708 21.417 24 17.092 24 12c0-6.352-5.148-11.5-12-11.5z"/>
-            </svg>
+        <a href="https://github.com/Kpastam" target="_blank" rel="noopener" class="footer-link" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0.5C5.648 0.5 0.5 5.648 0.5 12c0 5.092 3.292 9.417 7.868 10.955.575.106.785-.25.785-.555 0-.274-.01-1.002-.015-1.964-3.2.695-3.878-1.544-3.878-1.544-.523-1.33-1.276-1.684-1.276-1.684-1.043-.713.08-.698.08-.698 1.152.081 1.758 1.184 1.758 1.184 1.026 1.756 2.693 1.249 3.348.954.104-.742.402-1.249.732-1.536-2.554-.29-5.236-1.276-5.236-5.683 0-1.256.448-2.283 1.183-3.086-.119-.29-.512-1.456.113-3.036 0 0 .964-.31 3.156 1.18.914-.254 1.894-.381 2.868-.386.974.005 1.954.132 2.868.386 2.19-1.49 3.152-1.18 3.152-1.18.627 1.58.234 2.746.115 3.036.738.803 1.182 1.83 1.182 3.086 0 4.418-2.688 5.39-5.25 5.674.414.356.783 1.062.783 2.143 0 1.548-.014 2.797-.014 3.176 0 .31.208.667.791.554C20.708 21.417 24 17.092 24 12c0-6.352-5.148-11.5-12-11.5z"/></svg>
             <span>GitHub</span>
         </a>
-        <a href="https://in.linkedin.com/in/khyathi-pastam-551a7b16a" target="_blank" class="footer-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"></path>
-                <rect x="2" y="9" width="4" height="12"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-            </svg>
+        <a href="https://in.linkedin.com/in/khyathi-pastam-551a7b16a" target="_blank" rel="noopener" class="footer-link" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v6h-4v-6a2 2 0 0 0-4 0v6h-4v-6a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             <span>LinkedIn</span>
         </a>
     </div>
